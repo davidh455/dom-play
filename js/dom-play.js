@@ -20,6 +20,30 @@ HTML "hooks" may be added to the page, meaning you can edit the HTML to enable y
 
 //document.querySelector(".hamlet").style.backgroundColor = "yellow";
 
+
+const spans = document.querySelectorAll("div#play span");
+
+console.log(spans);
+
+for (const mySpan of spans){
+    mySpan.addEventListener("click", function(ev){
+        let myActor = mySpan.dataset.actor;
+        highlightActor(myActor);
+    });
+}
+
+function highlightActor(myActor){
+    for(const mySpan of spans){
+        if(myActor == mySpan.dataset.actor){
+            mySpan.style.backgroundColor = "orange";
+    
+        }else{
+        mySpan.style.backgroundColor = "white";
+    
+        }
+    }
+}
+
 function highlight(el){
 
     if(el.style.backgroundColor == "orange"){
